@@ -24,11 +24,15 @@ public class cursorTexture : MonoBehaviour
      void Update()
     {
         Cursor.SetCursor(ARROW, hotSpot, cursorMode);
-        if (Input.GetKey(KeyCode.Mouse3))
+        if (Input.GetKey(KeyCode.Mouse2))
         {
             Cursor.SetCursor(ARROWALL, hotSpot, cursorMode);
         }
+        else
+        {
 
+            Cursor.SetCursor(ARROW, hotSpot, cursorMode);
+        }
             
             
 
