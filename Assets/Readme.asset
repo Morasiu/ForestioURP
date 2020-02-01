@@ -12,46 +12,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf7219bab7fe46a1ad266029b2fee19, type: 3}
   m_Name: Readme
   m_EditorClassIdentifier: 
-  icon: {fileID: 2800000, guid: 7801804018a7dcf42abb827444e18660, type: 3}
-  title: Lightweight RP
+  icon: {fileID: 2800000, guid: 9b84c330de497af4793fd7b376afed13, type: 3}
+  title: High-Definition Render Pipeline
   sections:
-  - heading: Lightweight Render Pipeline
-    text: 'This template is a good starting point for developers focused on performance.
-      The Lightweight Render Pipeline offers both real-time lighting and baked lighting
-      in a single-pass forward renderer. This decreases the amount of necessary draw
-      calls, making LWRP idea for projects that must scale across platforms, including
-      mobile hardware. '
+  - heading: 
+    text: This template is a good starting point for projects aiming at <b>High-end Graphics</b>
+      and developed for platforms that support Shader Model 5.0 (DX11
+      and above). This template utilizes the <b>High Definition Render Pipeline (HDRP)</b>,
+      a modern rendering pipeline that includes advanced material types and a configurable
+      hybrid tile/cluster deferred/forward lighting architecture. This template also includes the <b>Shader Graph</b> tool, <b>Visual Effect Graph</b> tool, several Presets to jump start development, and example content.
     linkText: 
     url: 
   - heading: 
-    text: 'The Lightweight Render Pipeline is currently still in development, so it
-      is subject to changes (API, UX, scope). As such, it is not covered by regular
-      Unity support. Please direct any questions to the:'
-    linkText: Preview Forum
-    url: https://forum.unity.com/categories/betas-experimental-features.86/
-  - heading: 
-    text: 'To read more about the Lightweight Render Pipeline, see this LWRP documentation
-      site: '
-    linkText: LWRP documentation site
-    url: https://docs.unity3d.com/Packages/com.unity.render-pipelines.lightweight@5.2/manual/index.html
-  - heading: 
-    text: 'This project also includes the new Shader Graph tool. With this tool, you
-      can create shaders with a visual node editor instead of writing code. Read more
-      about the Shader Graph here:'
-    linkText: Shader Graph
-    url: https://github.com/Unity-Technologies/ShaderGraph/wiki
-  - heading: 
-    text: 'This project also includes the new Post-processing stack, several presets
-      to jump-start development, and example content. To learn more about Post-processing
-      please refer to the wiki page located here:'
-    linkText: Post-processing
-    url: https://github.com/Unity-Technologies/PostProcessing/wiki
-  - heading: 
-    text: This project uses the new Package Manager to bring you the latest features
-      Unity has to offer. Open the Package Manager from Windows > Package Manager
-      and make sure you're using the most recent version of the Lightweight Render
-      Pipeline. To update packages, select your desired package from the list on the
+    text: This project uses the <b>Package Manager</b> to bring you the latest features
+      Unity has to offer. Open the Package Manager from <b>Windows > Package Manager</b>
+      and make sure you're using the most recent version of HDRP. To update packages, select your desired package from the list on the
       left, and click the Update to button in the bottom right corner.
     linkText: 
-    url: 
+    url: 	
+  - heading: Documentation
+    text: 'To read more about HDRP please see the <b>HDRP documentation</b> :'
+    linkText: High Definition Render Pipeline
+    url: https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html
+  - heading: 
+    text: 'HDRP uses its own implementation of <b>post-processing</b>. It uses the <b>Volume system</b> to allow
+      you to localize post-processing effects to a certain area of your Scene. For
+      more information about post-processing and the Volume system, see the pages :'
+    linkText: Post-processing
+    url: https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/Post-Processing-Main.html?preview=1
+  - heading:
+    text:
+    linkText: Volumes System
+    url: https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/Volumes.html?preview=1	
+  - heading: Sample Content
+    text: 'The <b>Unity HDRI Pack</b> is a great resource when working with HDRP. You can use the HDRIs in this pack with the Look Dev tool. Download the Unity HDRI Pack here:'
+    linkText: HDRI Package
+    url: https://assetstore.unity.com/packages/essentials/beta-projects/unity-hdri-pack-72511
+  - heading: 
+    text: 'Examples of complex projects that use HDRP :'
+  - heading:
+    text: 'The <b>Fontainebleau</b> project contains examples of complex Material usage, volumetric effects, decals, Shader Graphs, and more.'
+    linkText: Fontainbleau demo
+    url: https://github.com/Unity-Technologies/FontainebleauDemo	
+  - heading:
+    text: 'The <b>Spaceship</b> project uses the Visual Effect Graph to showcase high quality visual effects. This project also shows how to use scripting and user interaction to trigger visual effects.'
+    linkText: Spaceship demo
+    url: https://github.com/Unity-Technologies/SpaceshipDemo
+  - heading:
+    text: 'The <b>VR Alchemist Lab</b> project is a small medieval laboratory that showcases HDRP rendering features in VR. This project also shows interactive effects.'
+    linkText: VR Alchemist Lab demo
+    url: https://github.com/Unity-Technologies/VRAlchemistLab
+  - heading: Ray tracing (Preview)
+    text: 'This version of HDRP includes a preview of Ray tracing features. To read more on this topic please see our <b>"Getting started"</b> guide :'
+    linkText: Getting started with Ray Tracing
+    url: https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@latest/index.html?subfolder=/manual/Ray-Tracing-Getting-Started.html?preview=1  
+  - heading: 
+    text: 'Ray tracing features are also demonstrated in this small sample projet :'
+    linkText: Small office Ray tracing
+    url: https://github.com/Unity-Technologies/SmallOfficeRayTracing    
   loadedLayout: 1
