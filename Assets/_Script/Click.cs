@@ -11,7 +11,7 @@ public class Click : MonoBehaviour
     GameObject PollutedMenu;
 
     public Material mat;
-    GameObject TargetMenu;
+    GameObject TargetMenu;  
     
     Vector3 hitHexaPosition;
     Vector3 hitBarPosition;
