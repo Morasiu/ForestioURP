@@ -11,7 +11,6 @@ public class Click : MonoBehaviour
     GameObject PollutedMenu;
 
     public Material mat;
-    public LayerMask layer;
     GameObject TargetMenu;
     
     Vector3 hitHexaPosition;
@@ -20,13 +19,16 @@ public class Click : MonoBehaviour
     RaycastHit hitBar;
 
     bool ShouldInstantiate = true;
+    public Camera cam;
+
     void Update()
     {
         var rightClick = Input.GetKeyDown(KeyCode.Mouse1);
         var leftClick = Input.GetKeyDown(KeyCode.Mouse0);
         CastABarRay();
-        print(TargetMenu);
-        if (rightClick || leftClick || Input.GetKey(KeyCode.Mouse2))
+
+        #region niedziala
+        /*if (rightClick || leftClick || Input.GetKey(KeyCode.Mouse2))
             if (TargetMenu != null)
                 if (hitBar.collider != null)
                 {
@@ -43,16 +45,27 @@ public class Click : MonoBehaviour
                             OnRedwoodChosen();
                         print($"bar uderza w {hitBar.collider.name}");
                     }
+                    else
+                    {
+                        NaturalMenu.SetActive(false);
+                        NeutralMenu.SetActive(false);
+                        PollutedMenu.SetActive(false);
+                        ShouldInstantiate = true;
+                        return;
+                    }
 
                     ShouldInstantiate = false;
                 }
                 else
                 {
-                    Destroy(TargetMenu);
+
+                    NaturalMenu.SetActive(false);
+                    NeutralMenu.SetActive(false);
+                    PollutedMenu.SetActive(false);
                     ShouldInstantiate = true;
                     return;
-                }
-                
+                }*/
+        #endregion
 
         if (rightClick)
         {
@@ -72,18 +85,19 @@ public class Click : MonoBehaviour
         }
         else if (leftClick)
         {
-            try
-            {
-                //zatwierdz akcje
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"Error: {ex.Message}");
-                return;
-            }
-           
+            //NeutralMenu.SetActive(false);
+            StartCoroutine(DisapearTab());
         }
             
+    }
+
+    IEnumerator DisapearTab()
+    {
+
+        yield return new WaitForSeconds(.2f);
+        NeutralMenu.SetActive(false);
+
+
     }
 
     private void SetTargetMenu()
@@ -98,19 +112,26 @@ public class Click : MonoBehaviour
             case HexState.Natural:
                 //var HexaHasTree = (hit.collider.gameObject.GetComponentInChildren<ItemTree>() != null);
                 //if (HexaHasTree)
-                    //TargetMenu = Instantiate(NaturalMenu, new Vector3(hitPosition.x, hitPosition.y, 5f), Quaternion.identity);
+                //TargetMenu = Instantiate(NaturalMenu, new Vector3(hitPosition.x, hitPosition.y, 5f), Quaternion.identity);
                 //else
-                if(ShouldInstantiate)
-                    TargetMenu = Instantiate(NeutralMenu, new Vector3(hitHexaPosition.x, hitHexaPosition.y, 5f), Quaternion.identity);
-                break;
+               // if (ShouldInstantiate)
+                    //TargetMenu = Instantiate(NeutralMenu, new Vector3(hitHexaPosition.x, hitHexaPosition.y, 5f), Quaternion.identity);
+                    NaturalMenu.SetActive(true);
+                    break;
             case HexState.Polluted:
-                if (ShouldInstantiate)
-                    TargetMenu = Instantiate(PollutedMenu, new Vector3(hitHexaPosition.x, hitHexaPosition.y, 5f), Quaternion.identity);
+                //if (ShouldInstantiate)
+                    PollutedMenu.SetActive(true);
+                    //TargetMenu = Instantiate(PollutedMenu, new Vector3(hitHexaPosition.x, hitHexaPosition.y, 5f), Quaternion.identity);
                 break;
             case HexState.Neutral:
-                if (ShouldInstantiate)
-                    TargetMenu = Instantiate(NeutralMenu,new Vector3(hitHexaPosition.x, hitHexaPosition.y,5f), Quaternion.identity);
+               // if (ShouldInstantiate)
+               // {
+                    NeutralMenu.SetActive(true);
+                    //TargetMenu = Instantiate(NeutralMenu, new Vector3(hitHexaPosition.x, hitHexaPosition.y, 5f), Quaternion.identity);
+                    //TargetMenu.transform.parent = parent.transform;
+                //}
                 hitHexa.collider.GetComponent<MeshRenderer>().material = mat;
+                
                 break;
 
             default:
@@ -123,11 +144,11 @@ public class Click : MonoBehaviour
     private void DetectPosition()
     {
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out hitHexa, Mathf.Infinity, 1 << 9))
         {
-            hitHexaPosition = hitHexa.point * 5;
+            hitHexaPosition = hitHexa.point/2;
         }
 
     }
@@ -135,7 +156,7 @@ public class Click : MonoBehaviour
     private void CastABarRay()
     {
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out hitBar, Mathf.Infinity, 1 << 5))
         {
