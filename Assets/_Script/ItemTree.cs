@@ -15,6 +15,7 @@ public class ItemTree : MonoBehaviour {
         if (phase == Phase.Zero) {
             phase = Phase.First;
             yield return new WaitForSeconds(TimeToSecondPhase);
+            transform.parent.GetComponent<Hex>().Neighbours.ForEach(n => n.GetComponent<Hex>().HexState = HexState.Natural);
             phase = Phase.Second;
             yield return new WaitForSeconds(TimeToThirdPhase);
             phase = Phase.Third;

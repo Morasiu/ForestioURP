@@ -6,7 +6,7 @@ using System.Linq;
 public class Hex : MonoBehaviour
 {
     public HexState HexState { get; private set; }
-    public Dictionary<NeighbourDirection, GameObject> Neighbours;
+    public List<GameObject> Neighbours;
     public bool isNonActive;
     public bool isPolluted;
     public bool isNatural;
@@ -14,7 +14,9 @@ public class Hex : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Neighbours = new Dictionary<NeighbourDirection, GameObject>();
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 5f);
+        Neighbours = hitColliders.Where(c => c.GetComponent<Hex>() != null).Select(c => c.gameObject).ToList();
+
         var materials = GetComponentInParent<WorldMaterials>().materials.ToList();
         
         if (isNonActive)
@@ -37,14 +39,7 @@ public class Hex : MonoBehaviour
             GetComponent<MeshRenderer>().material = materials[3];
         }
 
-        //for (int i = 0; i < Enum.GetValues(typeof(NeighbourDirection)).Length; i++) {
-        //    Vector3 direction = transform.TransformDirection(Vector3.back) * 5;
-        //    if (Physics.Raycast(transform.position, direction, out var hit, 20)) {
-        //        Debug.Log("Hit: " + hit.collider.name);
-        //    }
-        //}
-
-        //Debug.Log(Neighbours.Count);
+        Debug.Log(Neighbours.Count);
     }
 
     //void OnDrawGizmosSelected() {
