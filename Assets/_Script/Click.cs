@@ -11,16 +11,24 @@ public class Click : MonoBehaviour
     GameObject PollutedMenu;
 
     public Material mat;
-    GameObject TargetMenu;  
-    
+    GameObject TargetMenu;
+    public GameObject childrenOfHexa;
     Vector3 hitHexaPosition;
     Vector3 hitBarPosition;
     RaycastHit hitHexa;
     RaycastHit hitBar;
-
+    public GameObject World;
     bool ShouldInstantiate = true;
     public Camera cam;
 
+
+    public void SetChildren(GameObject tree)
+    {
+        
+        var children = Instantiate(tree, hitHexa.collider.transform, false);
+        children.transform.localScale /= 4;
+        //children.transform.parent = hitHexa.collider.transform;
+    }
     void Update()
     {
         var rightClick = Input.GetKeyDown(KeyCode.Mouse1);
@@ -86,7 +94,7 @@ public class Click : MonoBehaviour
         else if (leftClick)
         {
             //NeutralMenu.SetActive(false);
-            StartCoroutine(DisapearTab());
+            //StartCoroutine(DisapearTab());
         }
             
     }
@@ -143,14 +151,12 @@ public class Click : MonoBehaviour
 
     private void DetectPosition()
     {
-
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out hitHexa, Mathf.Infinity, 1 << 9))
         {
             hitHexaPosition = hitHexa.point/2;
         }
-
     }
 
     private void CastABarRay()
@@ -173,6 +179,7 @@ public class Click : MonoBehaviour
     public void OnOakChosen()
     {
         print("Oak !!!!");
+        SetChildren(childrenOfHexa);
     }
     public void OnBushChosen()
     {
