@@ -13,7 +13,6 @@ public class Click : MonoBehaviour
     public Material mat;
     public GameObject childrenOfHexa;
     RaycastHit hitHexa;
-    RaycastHit hitBar;
     public GameObject World;
     public Camera cam;
 
@@ -23,53 +22,12 @@ public class Click : MonoBehaviour
         
         var children = Instantiate(tree, hitHexa.collider.transform, false);
         children.transform.localScale /= 4;
+        
     }
     void Update()
     {
         var rightClick = Input.GetKeyDown(KeyCode.Mouse1);
         var leftClick = Input.GetKeyDown(KeyCode.Mouse0);
-        CastABarRay();
-
-        #region niedziala
-        /*if (rightClick || leftClick || Input.GetKey(KeyCode.Mouse2))
-            if (TargetMenu != null)
-                if (hitBar.collider != null)
-                {
-                    if (Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1))
-                    {
-
-                        if (hitBar.collider.name.CompareTo("Oak") == 0)
-                            OnOakChosen();
-                        if (hitBar.collider.name.CompareTo("Bush") == 0)
-                            OnBushChosen();
-                        if (hitBar.collider.name.CompareTo("Pine") == 0)
-                            OnPineChosen();
-                        if (hitBar.collider.name.CompareTo("RedWood") == 0)
-                            OnRedwoodChosen();
-                        print($"bar uderza w {hitBar.collider.name}");
-                    }
-                    else
-                    {
-                        NaturalMenu.SetActive(false);
-                        NeutralMenu.SetActive(false);
-                        PollutedMenu.SetActive(false);
-                        ShouldInstantiate = true;
-                        return;
-                    }
-
-                    ShouldInstantiate = false;
-                }
-                else
-                {
-
-                    NaturalMenu.SetActive(false);
-                    NeutralMenu.SetActive(false);
-                    PollutedMenu.SetActive(false);
-                    ShouldInstantiate = true;
-                    return;
-                }*/
-        #endregion
-
         if (rightClick)
         {
             DetectPosition();
@@ -79,11 +37,8 @@ public class Click : MonoBehaviour
 
     IEnumerator DisapearTab()
     {
-
         yield return new WaitForSeconds(.2f);
         NeutralMenu.SetActive(false);
-
-
     }
 
     private void SetTargetMenu()
@@ -109,6 +64,7 @@ public class Click : MonoBehaviour
                 Debug.Log("trafiles w nieaktywne pole");
                 break;
             default:
+                DisapearTab();
                 Debug.LogError("Uderzony Hex nie ma wartosci state");    
                 break;
 
@@ -118,18 +74,7 @@ public class Click : MonoBehaviour
     private void DetectPosition()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
         Physics.Raycast(ray, out hitHexa, Mathf.Infinity, 1 << 9);
-    }
-
-    private void CastABarRay()
-    {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-        Physics.Raycast(ray, out hitBar, Mathf.Infinity, 1 << 5);
-
-        if (hitBar.collider != null)
-            print(hitBar.collider.name);
     }
 
     #region Natural Menu Actions
