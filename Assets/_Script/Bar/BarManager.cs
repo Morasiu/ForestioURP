@@ -16,8 +16,8 @@ public class BarManager : MonoBehaviour
 
     private void Update()
     {
-        var naturalHexa = HexaList.Sum(x => x.HexState.CompareTo(HexState.Natural));
-        var poluttedHexa = HexaList.Sum(x => x.HexState.CompareTo(HexState.Polluted));
+        var naturalHexa = HexaList.Sum(x => x.Status.CompareTo(HexState.Natural));
+        var poluttedHexa = HexaList.Sum(x => x.Status.CompareTo(HexState.Polluted));
 
         float percentage = (float) naturalHexa / (naturalHexa + poluttedHexa);
         progressBar.targetPercentage = percentage;

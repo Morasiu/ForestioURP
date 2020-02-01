@@ -11,14 +11,10 @@ public class Click : MonoBehaviour
     GameObject PollutedMenu;
 
     public Material mat;
-    GameObject TargetMenu;
     public GameObject childrenOfHexa;
-    Vector3 hitHexaPosition;
-    Vector3 hitBarPosition;
     RaycastHit hitHexa;
     RaycastHit hitBar;
     public GameObject World;
-    bool ShouldInstantiate = true;
     public Camera cam;
 
 
@@ -27,7 +23,6 @@ public class Click : MonoBehaviour
         
         var children = Instantiate(tree, hitHexa.collider.transform, false);
         children.transform.localScale /= 4;
-        //children.transform.parent = hitHexa.collider.transform;
     }
     void Update()
     {
@@ -79,24 +74,7 @@ public class Click : MonoBehaviour
         {
             DetectPosition();
             SetTargetMenu();
-
-            try
-            {
-                //wyswietl menu zwiazne z danym polem
-                
-            }
-            catch(Exception ex)
-            {
-                Debug.LogError($"Error: {ex.Message}");
-                return;
-            }
         }
-        else if (leftClick)
-        {
-            //NeutralMenu.SetActive(false);
-            //StartCoroutine(DisapearTab());
-        }
-            
     }
 
     IEnumerator DisapearTab()
@@ -112,34 +90,20 @@ public class Click : MonoBehaviour
     {
         if (hitHexa.collider == null)
             return;
-        var HexaStatus = hitHexa.collider.gameObject.GetComponent<Hex>().HexState;
+        var HexaStatus = hitHexa.collider.gameObject.GetComponent<Hex>().Status;
         Debug.Log($"Hit: {HexaStatus} ");
         
         switch (HexaStatus)
         {
             case HexState.Natural:
-                //var HexaHasTree = (hit.collider.gameObject.GetComponentInChildren<ItemTree>() != null);
-                //if (HexaHasTree)
-                //TargetMenu = Instantiate(NaturalMenu, new Vector3(hitPosition.x, hitPosition.y, 5f), Quaternion.identity);
-                //else
-               // if (ShouldInstantiate)
-                    //TargetMenu = Instantiate(NeutralMenu, new Vector3(hitHexaPosition.x, hitHexaPosition.y, 5f), Quaternion.identity);
                     NaturalMenu.SetActive(true);
                     break;
             case HexState.Polluted:
-                //if (ShouldInstantiate)
                     PollutedMenu.SetActive(true);
-                    //TargetMenu = Instantiate(PollutedMenu, new Vector3(hitHexaPosition.x, hitHexaPosition.y, 5f), Quaternion.identity);
                 break;
             case HexState.Neutral:
-               // if (ShouldInstantiate)
-               // {
-                    NeutralMenu.SetActive(true);
-                    //TargetMenu = Instantiate(NeutralMenu, new Vector3(hitHexaPosition.x, hitHexaPosition.y, 5f), Quaternion.identity);
-                    //TargetMenu.transform.parent = parent.transform;
-                //}
+                NeutralMenu.SetActive(true);
                 hitHexa.collider.GetComponent<MeshRenderer>().material = mat;
-                
                 break;
             case HexState.NonActive:
                 Debug.Log("trafiles w nieaktywne pole");
@@ -155,22 +119,14 @@ public class Click : MonoBehaviour
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hitHexa, Mathf.Infinity, 1 << 9))
-        {
-            hitHexaPosition = hitHexa.point/2;
-        }
+        Physics.Raycast(ray, out hitHexa, Mathf.Infinity, 1 << 9);
     }
 
     private void CastABarRay()
     {
-
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hitBar, Mathf.Infinity, 1 << 5))
-        {
-            hitBarPosition = hitBar.point;
-            print("trafiam w bara");
-        }
+        Physics.Raycast(ray, out hitBar, Mathf.Infinity, 1 << 5);
 
         if (hitBar.collider != null)
             print(hitBar.collider.name);
@@ -180,23 +136,20 @@ public class Click : MonoBehaviour
 
     public void OnOakChosen()
     {
-        print("Oak !!!!");
+        hitHexa.collider.GetComponent<Hex>().Status = HexState.Natural;
         SetChildren(childrenOfHexa);
     }
     public void OnBushChosen()
     {
-        print("Bush !!!!");
-
+        hitHexa.collider.GetComponent<Hex>().Status = HexState.Natural;
     }
     public void OnPineChosen()
     {
-        print("Pine !!!!");
-
+        hitHexa.collider.GetComponent<Hex>().Status = HexState.Natural;
     }
     public void OnRedwoodChosen()
     {
-        print("Redwood !!!!");
-
+        hitHexa.collider.GetComponent<Hex>().Status = HexState.Natural;
     }
 
     #endregion 
