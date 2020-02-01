@@ -565,7 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ARROW: {fileID: 2800000, guid: 11c301c0edcfffe4e9a442e926ab715f, type: 3}
-  ARROWALL: {fileID: 2800000, guid: 548d4566764905641a3c1dd71eaa79cc, type: 3}
+  ARROWALL: {fileID: 2800000, guid: 11c301c0edcfffe4e9a442e926ab715f, type: 3}
   cursorMode: 0
 --- !u!1 &702676743
 GameObject:
