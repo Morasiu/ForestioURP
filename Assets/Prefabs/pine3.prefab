@@ -54,11 +54,10 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 107e5403baa4a7a48a5c8bda29f1f432, type: 2}
+  - {fileID: 0}
   - {fileID: 2100000, guid: ff1d6e57bbf3e1a459e25f32a796e431, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -134,11 +133,10 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 107e5403baa4a7a48a5c8bda29f1f432, type: 2}
+  - {fileID: 0}
   - {fileID: 2100000, guid: ff1d6e57bbf3e1a459e25f32a796e431, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -214,7 +212,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -293,11 +290,10 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 107e5403baa4a7a48a5c8bda29f1f432, type: 2}
+  - {fileID: 0}
   - {fileID: 2100000, guid: ff1d6e57bbf3e1a459e25f32a796e431, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -328,6 +324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5441772291937971694}
+  - component: {fileID: -8743510197735215248}
   m_Layer: 0
   m_Name: pine3
   m_TagString: Untagged
@@ -353,3 +350,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 9.145, y: 72.64001, z: 0}
+--- !u!114 &-8743510197735215248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9069782123913699325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7d95094b52074448ca479dbd72d972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase: 0
+  TimeToSecondPhase: 3
+  TimeToThirdPhase: 10

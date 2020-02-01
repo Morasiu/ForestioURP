@@ -72,7 +72,6 @@ public class Hex : MonoBehaviour
             GetComponent<MeshRenderer>().material = materials[3];
         }
 
-        Debug.Log(Neighbours.Count);
     }
 
     //void OnDrawGizmosSelected() {
