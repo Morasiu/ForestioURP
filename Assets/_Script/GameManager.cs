@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        var naturalHexa = HexaList.Sum(x => x.HexState.CompareTo(HexState.Natural));
-        var poluttedHexa = HexaList.Sum(x => x.HexState.CompareTo(HexState.Polluted));
+        var naturalHexa = HexaList.Sum(x => x.Status.CompareTo(HexState.Natural));
+        var poluttedHexa = HexaList.Sum(x => x.Status.CompareTo(HexState.Polluted));
 
         if (naturalHexa == 0) {
             Debug.Log("POLLUTION WON! :(");

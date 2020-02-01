@@ -10,7 +10,40 @@ public class Hex : MonoBehaviour
     public bool isNonActive;
     public bool isPolluted;
     public bool isNatural;
-    
+
+    List<Material> materials;
+
+    private HexState status;
+
+    public HexState Status
+    {
+        get { return status; }
+        set {
+            if (isNonActive)
+            {
+                value = HexState.NonActive;
+                // GetComponent<MeshRenderer>().material = materials[0];         ----mmozna nazlozyc swoj material woda piasek etc
+            }
+            else if (isPolluted)
+            {
+                value = HexState.Polluted;
+                GetComponent<MeshRenderer>().material = materials[1];
+            }
+            else if (isNatural)
+            {
+                value = HexState.Natural;
+                GetComponent<MeshRenderer>().material = materials[2];
+            }
+            else
+            {
+                value = HexState.Neutral;
+                GetComponent<MeshRenderer>().material = materials[3];
+            }
+
+            status = value;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,21 +54,21 @@ public class Hex : MonoBehaviour
         
         if (isNonActive)
         {
-            HexState = HexState.NonActive;
+            status = HexState.NonActive;
            // GetComponent<MeshRenderer>().material = materials[0];         ----mmozna nazlozyc swoj material woda piasek etc
         }else if (isPolluted)
         {
-            HexState = HexState.Polluted;
+            status = HexState.Polluted;
             GetComponent<MeshRenderer>().material = materials[1];
         }
         else if (isNatural)
         {
-            HexState = HexState.Natural;
+            status = HexState.Natural;
             GetComponent<MeshRenderer>().material = materials[2];
         }
         else
         {
-            HexState = HexState.Neutral;
+            status = HexState.Neutral;
             GetComponent<MeshRenderer>().material = materials[3];
         }
 
