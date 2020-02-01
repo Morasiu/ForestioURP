@@ -5,6 +5,7 @@ using UnityEngine;
 public enum HexState {
     Neutral,
     Natural,
-    Polluted
+    Polluted,
+    NonActive
 }
  

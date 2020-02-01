@@ -141,7 +141,9 @@ public class Click : MonoBehaviour
                 hitHexa.collider.GetComponent<MeshRenderer>().material = mat;
                 
                 break;
-
+            case HexState.NonActive:
+                Debug.Log("trafiles w nieaktywne pole");
+                break;
             default:
                 Debug.LogError("Uderzony Hex nie ma wartosci state");    
                 break;
