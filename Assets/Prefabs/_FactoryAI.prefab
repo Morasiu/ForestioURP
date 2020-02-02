@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FactoryPrefab: {fileID: 5359878187048709613, guid: fa5d6dc2b1cf68f448f259a61a39055e,
     type: 3}
-  FactorySpawnTime: 5
+  FactorySpawnTime: 10
 --- !u!114 &6357232652766574264
 MonoBehaviour:
   m_ObjectHideFlags: 0

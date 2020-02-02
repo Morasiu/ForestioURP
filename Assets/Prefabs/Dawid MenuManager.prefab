@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3891490783632088704}
   - component: {fileID: 3891490783632088711}
   m_Layer: 0
-  m_Name: MenuManager
+  m_Name: Dawid MenuManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeutralMenu: {fileID: 0}
-  mat: {fileID: 2100000, guid: e3ae06a3979f53046aa05330d69de1fa, type: 3}
-  layer:
-    serializedVersion: 2
-    m_Bits: 512
+  mat: {fileID: 2100000, guid: ec739259ec61f5d4ba3ed6d34fd802a6, type: 2}
+  Oak: {fileID: 5406292892924284662, guid: c9bd8a4a343bf6d4f8d6f7a0699f0ad4, type: 3}
+  Pine: {fileID: 391980712172243902, guid: 87710afbfb7c22242bf55a4acf38afc1, type: 3}
+  Bush: {fileID: 3643647247691546236, guid: 20eae560b30279c428c01faff81ccbad, type: 3}
+  Redwood: {fileID: 7350781116231446846, guid: 92f902bd1e1023045acc75226ee71b45, type: 3}
+  World: {fileID: 0}
   cam: {fileID: 0}

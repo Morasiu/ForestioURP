@@ -18,7 +18,7 @@ public class ItemTree : MonoBehaviour {
     private SurroundHexes SurroundHexes;
     private Hex parentHex;
 
-    [SerializeField] float TimeToFirstPhase = 3;
+    [SerializeField] float TimeToFirstPhase = 0.01f;
 
     void Start() {
         parentHex = transform.parent.GetComponent<Hex>();
@@ -33,11 +33,16 @@ public class ItemTree : MonoBehaviour {
 
         yield return new WaitForSeconds(TimeToFirstPhase);
         phase = Phase.First;
+        transform.GetChild(0).gameObject.SetActive(true);
         yield return new WaitForSeconds(TimeToSecondPhase);
         var neighbours = SurroundHexes.ActiveateObjectsAroundTheTarget(this.gameObject, HexState.Natural);
         phase = Phase.Second;
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(true);
         yield return new WaitForSeconds(TimeToThirdPhase);
         phase = Phase.Third;
+        transform.GetChild(1).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(true);
         foreach (var neighbour in neighbours) {
             SurroundHexes.ActiveateObjectsAroundTheTarget(neighbour.gameObject, HexState.Natural);
         }
