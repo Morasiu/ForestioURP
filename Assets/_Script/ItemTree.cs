@@ -10,6 +10,11 @@ public class ItemTree : MonoBehaviour {
     [SerializeField]
     private float TimeToThirdPhase = 10f;
 
+    private void Awake()
+    {
+        phase = Phase.Zero;
+    }
+
     // Start is called before the first frame update
     IEnumerator Start() {
         if (phase == Phase.Zero) {

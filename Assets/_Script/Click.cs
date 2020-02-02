@@ -6,7 +6,7 @@ using UnityEngine;
 public class Click : MonoBehaviour
 {
 
-    GameObject NaturalMenu;
+    //GameObject NaturalMenu;
     public GameObject NeutralMenu;
     GameObject PollutedMenu;
 
@@ -60,7 +60,7 @@ public class Click : MonoBehaviour
         switch (HexaStatus)
         {
             case HexState.Natural:
-                    NaturalMenu.SetActive(true);
+                    //NaturalMenu.SetActive(true);
                     break;
             case HexState.Polluted:
                     PollutedMenu.SetActive(true);
