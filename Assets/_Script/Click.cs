@@ -72,10 +72,10 @@ public class Click : MonoBehaviour
         switch (HexaStatus)
         {
             case HexState.Natural:
-                //NaturalMenu.SetActive(true);
+                NeutralMenu.SetActive(true);
                 break;
             case HexState.Polluted:
-                //P.SetActive(true);
+                NeutralMenu.SetActive(true);
                 break;
             case HexState.Neutral:
                 NeutralMenu.SetActive(true);
@@ -84,10 +84,9 @@ public class Click : MonoBehaviour
                 Debug.Log("trafiles w nieaktywne pole");
                 break;
             default:
-                DisapearTab();
+                StartCoroutine(DisapearTab());
                 Debug.LogError("Uderzony Hex nie ma wartosci state");    
                 break;
-
         }
     }
 
@@ -123,6 +122,7 @@ public class Click : MonoBehaviour
         Debug.Log("SPAWN: " + tree.name + " at " + hitHexa.collider.name);
         hitHexa.collider.GetComponent<Hex>().Status = HexState.Natural;
         SetChildren(tree);
+        NeutralMenu.SetActive(false);
     }
 
 }
