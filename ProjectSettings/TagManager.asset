@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MenuBar
+  - CometHandler
   layers:
   - Default
   - TransparentFX
