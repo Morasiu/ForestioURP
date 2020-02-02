@@ -303,41 +303,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1461978431}
-    - target: {fileID: 3891490783632088711, guid: e8635892dea65204980091d0da2969aa,
-        type: 3}
-      propertyPath: childrenOfHexa
-      value: 
-      objectReference: {fileID: 5817798010777311560, guid: 74d865e0574679742b4635757cf0104c,
-        type: 3}
-    - target: {fileID: 3891490783632088711, guid: e8635892dea65204980091d0da2969aa,
-        type: 3}
-      propertyPath: mat
-      value: 
-      objectReference: {fileID: 2100000, guid: ec739259ec61f5d4ba3ed6d34fd802a6, type: 2}
-    - target: {fileID: 3891490783632088711, guid: e8635892dea65204980091d0da2969aa,
-        type: 3}
-      propertyPath: Bush
-      value: 
-      objectReference: {fileID: 3643647247691546236, guid: 20eae560b30279c428c01faff81ccbad,
-        type: 3}
-    - target: {fileID: 3891490783632088711, guid: e8635892dea65204980091d0da2969aa,
-        type: 3}
-      propertyPath: Pine
-      value: 
-      objectReference: {fileID: 391980712172243902, guid: 87710afbfb7c22242bf55a4acf38afc1,
-        type: 3}
-    - target: {fileID: 3891490783632088711, guid: e8635892dea65204980091d0da2969aa,
-        type: 3}
-      propertyPath: Redwood
-      value: 
-      objectReference: {fileID: 7350781116231446846, guid: 92f902bd1e1023045acc75226ee71b45,
-        type: 3}
-    - target: {fileID: 3891490783632088711, guid: e8635892dea65204980091d0da2969aa,
-        type: 3}
-      propertyPath: Oak
-      value: 
-      objectReference: {fileID: 5406292892924284662, guid: c9bd8a4a343bf6d4f8d6f7a0699f0ad4,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8635892dea65204980091d0da2969aa, type: 3}
 --- !u!108 &1379356074 stripped
