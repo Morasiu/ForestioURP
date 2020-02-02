@@ -21,18 +21,22 @@ public class FactoryAI : MonoBehaviour
         while (true) {
             var factoryNumber = FindObjectsOfType<Factory>().Length;
             if (factoryNumber == 0) factoryNumber = 1;
-            FactorySpawnTime = 3f - factoryNumber * FactorySpawnTime;
-            // Change to filter already taken fields.
-            //var freeHexList = HexList.FirstOrDefault(h => h.Status == HexState.Neutral);
-            var hex = HexList.FirstOrDefault(h => h.Status == HexState.Neutral);
-            var factoryTime = FindObjectsOfType<Factory>().Length;
+            FactorySpawnTime = Mathf.Clamp(3f - factoryNumber * FactorySpeedUp, 0.1f, 5);
+            var spawnParent = HexList.FirstOrDefault(h => h.Status == HexState.Neutral);
 
-            //var randomIndex = Random.Range(0, freeHexList.Count() -1);
+            // Change to filter already taken fields.
+            //var freeHexList = HexList.Where(h => h.Status == HexState.Neutral);
+            //var randomIndex = Random.Range(0, freeHexList.Count() - 1);
             //var spawnParent = HexList[randomIndex];
+
             // TODO
-            if (hex == null) break;
-            Instantiate(FactoryPrefab, hex.transform, false);
-            Debug.Log($"Spawned factory at: {hex.name}");
+            if (spawnParent == null) {
+                Debug.Log("No more hex! :o");
+                break;
+            }
+
+            Instantiate(FactoryPrefab, spawnParent.transform, false);
+            Debug.Log($"Spawned factory at: {spawnParent.name}");
             //Instantiate(FactoryPrefab, spawnParent.transform, false);
             yield return new WaitForSeconds(FactorySpawnTime);
         }
