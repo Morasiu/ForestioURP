@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        float percentage = (float)(naturalHexa / poluttedHexa);
+        float width = progressBar.transform.GetComponent<RectTransform>().rect.width;
+        float percentage = (float) naturalHexa / (poluttedHexa + naturalHexa) * width;
         progressBar.targetPercentage = percentage;
     }
 }
