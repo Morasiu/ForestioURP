@@ -41,7 +41,8 @@ public class Click : MonoBehaviour
         var leftClick = Input.GetKeyUp(KeyCode.Mouse0);
 
         if ((rightClick || leftClick) && oldMaterial != null) {
-            hitHexa.collider.gameObject.GetComponent<MeshRenderer>().material = oldMaterial;
+            if (hitHexa.collider.gameObject.GetComponent<MeshRenderer>().material.Equals(mat))
+                hitHexa.collider.gameObject.GetComponent<MeshRenderer>().material = oldMaterial;
         }
 
         if (rightClick)
