@@ -4449,6 +4449,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1136444570189317075, guid: 7de98be15e08a674ba63496ddab7d78b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3247236541710365552, guid: 7de98be15e08a674ba63496ddab7d78b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3247236542895430726, guid: 7de98be15e08a674ba63496ddab7d78b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749186887939086714, guid: 7de98be15e08a674ba63496ddab7d78b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 313
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7de98be15e08a674ba63496ddab7d78b, type: 3}
 --- !u!4 &6265723805688674077
@@ -4480,6 +4500,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701098d5580506945af760e105e65b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RotationSpped: -250
+  MinXRotation: -50
+  MaxXRotation: -36
   zoomSpeed: 5
   fovMin: 50
   fovMax: 100
