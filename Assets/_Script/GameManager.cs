@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
+
 public class GameManager : MonoBehaviour
 {
     List<Hex> HexaList;
@@ -19,14 +21,18 @@ public class GameManager : MonoBehaviour
         var naturalHexa = HexaList.Count(x => x.Status == HexState.Natural);
         var poluttedHexa = HexaList.Count(x => x.Status == HexState.Polluted);
 
-        if (naturalHexa == 0) {
-            Debug.Log("POLLUTION WON! :(");
-            return;
-        } else if (poluttedHexa == 0) {
-            Debug.Log("NATURE WON! :)");
-            return;
-        } else if (!FindObjectsOfType<Hex>().Any(h => h.Status == HexState.Neutral)){
+        //if (naturalHexa == 0) {
+        //    GoToLoseGameScene();
+        //    return;
+        //} else if (poluttedHexa == 0) {
+        //    GoToWonGameScene();
+        //    return;
+        if (!FindObjectsOfType<Hex>().Any(h => h.Status == HexState.Neutral)){
             Debug.Log("No more neutral HEX!");
+            if (naturalHexa > poluttedHexa)
+                GoToWonGameScene();
+            else
+                GoToLoseGameScene();
             return;
 
         }
@@ -35,5 +41,15 @@ public class GameManager : MonoBehaviour
         float width = progressBar.o2Bar.transform.parent.GetComponent<RectTransform>().rect.width;
         float percentage = raw * width;
         progressBar.targetPercentage = percentage;
+    }
+
+    private static void GoToWonGameScene() {
+        Debug.Log("NATURE WON! :)");
+        SceneManager.LoadScene("EndGameWon");
+    }
+
+    private static void GoToLoseGameScene() {
+        Debug.Log("POLLUTION WON! :(");
+        SceneManager.LoadScene("EndGameLose");
     }
 }
