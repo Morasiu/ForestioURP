@@ -9,7 +9,7 @@ public class FactoryAI : MonoBehaviour
     public GameObject FactoryPrefab;
 
     [SerializeField]
-    private float FactorySpawnTime = 3f;
+    private float FactorySpawnTime = 10f;
 
     private float FactorySpeedUp = 0.1f;
     List<Hex> HexList;
@@ -21,7 +21,7 @@ public class FactoryAI : MonoBehaviour
         while (true) {
             var factoryNumber = FindObjectsOfType<Factory>().Length;
             if (factoryNumber == 0) factoryNumber = 1;
-            FactorySpawnTime = Mathf.Clamp(3f - factoryNumber * FactorySpeedUp, 0.1f, 5);
+            FactorySpawnTime = Mathf.Clamp(3f - factoryNumber * FactorySpeedUp, 1f, 5);
             var spawnParent = HexList.FirstOrDefault(h => h.Status == HexState.Neutral);
 
             // Change to filter already taken fields.

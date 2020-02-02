@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   phase: 0
   TimeToSecondPhase: 3
-  TimeToThirdPhase: 10
+  TimeToThirdPhase: 5
   ShouldDestroyOnPolluted: 1
   TimeToFirstPhase: 0.1
 --- !u!114 &7311997461981587070

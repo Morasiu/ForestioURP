@@ -95,7 +95,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6251629889228070178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47775fe091bf43d449e7000349642166, type: 3}
+  m_Script: {fileID: 11500000, guid: 701098d5580506945af760e105e65b06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpped: -250
