@@ -4,5 +4,18 @@ using UnityEngine;
 
 public static class Seed 
 {
-	public static int Value { get; set; } = 0;
+	private static int _value;
+
+	public static int Value
+	{
+		get { 
+			return _value; 
+		}
+		set {
+			if (value < 0)
+				value = 0;
+			_value = value;
+		}
+	}
+
 }

@@ -29,11 +29,17 @@ public class SeedManager : MonoBehaviour
 
         trees = FindObjectsOfType<ItemTree>().ToList();
 
-        zeroPhaseThreetrees = trees.Sum(x => x.phase.CompareTo(Phase.Zero));
-        firstPhaseThreetrees = trees.Sum(x => x.phase.CompareTo(Phase.First));
-        secondPhaseThreetrees = trees.Sum(x => x.phase.CompareTo(Phase.Second));
-        thirdPhaseThreetrees = trees.Sum(x => x.phase.CompareTo(Phase.Third));
+        zeroPhaseThreetrees = trees.Count(x => x.phase.CompareTo(Phase.Zero)==0);
+        firstPhaseThreetrees = trees.Count(x => x.phase.CompareTo(Phase.First)==0);
+        secondPhaseThreetrees = trees.Count(x => x.phase.CompareTo(Phase.Second)==0);
+        thirdPhaseThreetrees = trees.Count(x => x.phase.CompareTo(Phase.Third)==0);
         print(Seed.Value);
+
+
+        print("0: "+ zeroPhaseThreetrees);
+        print("1: " + firstPhaseThreetrees);
+        print("2: " + secondPhaseThreetrees);
+        print("3: " + thirdPhaseThreetrees);
 
     }
 
