@@ -20,13 +20,13 @@ public class SurroundHexes : MonoBehaviour
 
     }
 
-    public void ActiveateObjectsAroundTheTarget(GameObject centerHex, HexState state)
+    public Collider[] ActiveateObjectsAroundTheTarget(GameObject centerHex, HexState state)
     {
-        var neighbors = Physics.OverlapSphere(centerHex.transform.position,HexRadius/1.4f,1<<9);
+        var neighbors = Physics.OverlapSphere(centerHex.transform.position, HexRadius / 1.4f, 1<<9);
         
         foreach (var field in neighbors)
         {
-            print(field.name);
+            //print(field.name);
 
             var fieldhex = field.GetComponent<Hex>();
 
@@ -49,10 +49,11 @@ public class SurroundHexes : MonoBehaviour
             }
             else
             {
-                return;
+                continue;
             }
 
-            print(fieldhex.Status);
+            //print(fieldhex.Status);
         }
+        return neighbors;
     }
 }

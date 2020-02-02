@@ -12,23 +12,24 @@ public class Hex : MonoBehaviour
 
     List<Material> materials;
 
+    [SerializeField]
     private HexState status;
 
     public HexState Status
     {
         get { return status; }
         set {
-            if (isNonActive)
+            if (value == HexState.NonActive)
             {
                 value = HexState.NonActive;
                 // GetComponent<MeshRenderer>().material = materials[0];         ----mmozna nazlozyc swoj material woda piasek etc
             }
-            else if (isPolluted)
+            else if (value == HexState.Polluted)
             {
                 value = HexState.Polluted;
                 GetComponent<MeshRenderer>().material = materials[1];
             }
-            else if (isNatural)
+            else if (value == HexState.Natural)
             {
                 value = HexState.Natural;
                 GetComponent<MeshRenderer>().material = materials[2];
@@ -38,7 +39,7 @@ public class Hex : MonoBehaviour
                 value = HexState.Neutral;
                 GetComponent<MeshRenderer>().material = materials[3];
             }
-            print($"no elooo{status}");
+
             status = value;
         }
     }
@@ -51,9 +52,10 @@ public class Hex : MonoBehaviour
         
         if (isNonActive)
         {
-            status = HexState.NonActive;
-           // GetComponent<MeshRenderer>().material = materials[0];         ----mmozna nazlozyc swoj material woda piasek etc
-        }else if (isPolluted)
+           status = HexState.NonActive;
+           GetComponent<MeshRenderer>().material = materials[0];         
+            // ----mmozna nazlozyc swoj material woda piasek etc
+        } else if (isPolluted)
         {
             status = HexState.Polluted;
             GetComponent<MeshRenderer>().material = materials[1];

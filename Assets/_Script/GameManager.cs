@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        var naturalHexa = HexaList.Sum(x => x.Status.CompareTo(HexState.Natural));
-        var poluttedHexa = HexaList.Sum(x => x.Status.CompareTo(HexState.Polluted));
+        var naturalHexa = HexaList.Count(x => x.Status == HexState.Natural);
+        var poluttedHexa = HexaList.Count(x => x.Status == HexState.Polluted);
 
         if (naturalHexa == 0) {
             Debug.Log("POLLUTION WON! :(");
@@ -25,9 +25,15 @@ public class GameManager : MonoBehaviour
         } else if (poluttedHexa == 0) {
             Debug.Log("NATURE WON! :)");
             return;
+        } else if (!FindObjectsOfType<Hex>().Any(h => h.Status == HexState.Neutral)){
+            Debug.Log("No more neutral HEX!");
+            return;
+
         }
 
-        float percentage = (float)(naturalHexa / poluttedHexa);
+        float raw = ((float) naturalHexa / (poluttedHexa + naturalHexa));
+        float width = progressBar.o2Bar.transform.parent.GetComponent<RectTransform>().rect.width;
+        float percentage = raw * width;
         progressBar.targetPercentage = percentage;
     }
 }

@@ -23,11 +23,11 @@ public class ProgressBar : MonoBehaviour
     {
         if (actualPercentage < targetPercentage)
         {
-            changeValue = 5f;
+            changeValue = 1f;
         }
         else if(actualPercentage > targetPercentage)
         {
-            changeValue = -5f;
+            changeValue = -1f;
         }
         else if(Math.Abs(actualPercentage - targetPercentage)<o2Bar.rectTransform.sizeDelta.x/50)  
         {

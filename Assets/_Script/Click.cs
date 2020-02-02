@@ -29,9 +29,7 @@ public class Click : MonoBehaviour
         children.transform.localScale /= 4;
 
         //To można dodać tylko tam gdzie spawnuje się obiekt wyższy poziomem
-        surroundHexes.ActiveateObjectsAroundTheTarget(children, HexState.Natural);
-
-        
+        //surroundHexes.ActiveateObjectsAroundTheTarget(children, HexState.Natural);
     }
     void Update()
     {
