@@ -119,6 +119,7 @@ public class Click : MonoBehaviour
     #endregion
 
     private void PlantTree(GameObject tree) {
+        Debug.Log("SPAWN: " + tree.name + " at " + hitHexa.collider.name);
         hitHexa.collider.GetComponent<Hex>().Status = HexState.Natural;
         SetChildren(tree);
     }
