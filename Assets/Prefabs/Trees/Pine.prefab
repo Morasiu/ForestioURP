@@ -62,7 +62,8 @@ MonoBehaviour:
   phase: 0
   TimeToSecondPhase: 3
   TimeToThirdPhase: 10
-  ShouldDestroyOnPolluted: 0
+  ShouldDestroyOnPolluted: 1
+  TimeToFirstPhase: 0.1
 --- !u!1001 &1030916827983622570
 PrefabInstance:
   m_ObjectHideFlags: 0

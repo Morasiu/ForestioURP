@@ -18,7 +18,7 @@ public class ItemTree : MonoBehaviour {
     private SurroundHexes SurroundHexes;
     private Hex parentHex;
 
-    [SerializeField] float TimeToFirstPhase = 3;
+    [SerializeField] float TimeToFirstPhase = 0.01f;
 
     void Start() {
         parentHex = transform.parent.GetComponent<Hex>();

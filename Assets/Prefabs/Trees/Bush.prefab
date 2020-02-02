@@ -50,7 +50,8 @@ MonoBehaviour:
   phase: 0
   TimeToSecondPhase: 3
   TimeToThirdPhase: 3
-  ShouldDestroyOnPolluted: 0
+  ShouldDestroyOnPolluted: 1
+  TimeToFirstPhase: 0.1
 --- !u!114 &363559154
 MonoBehaviour:
   m_ObjectHideFlags: 0

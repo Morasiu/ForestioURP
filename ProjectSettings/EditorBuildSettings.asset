@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: c9d11b38751b9914485d77b7bcce9117
+  - enabled: 1
+    path: Assets/Scenes/Hubert.unity
+    guid: 3a6eb1832bca6b5439b2c613cd018930
   m_configObjects: {}
