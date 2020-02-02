@@ -706,6 +706,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pine3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2468076123767638940, guid: 569f1ad715d60be4bb0fe6b597df6cf6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f332e53f31465a843abb186833ee47b5, type: 2}
     - target: {fileID: 3259000775368702815, guid: 569f1ad715d60be4bb0fe6b597df6cf6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -761,6 +766,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -169.104
       objectReference: {fileID: 0}
+    - target: {fileID: 4018926539075088031, guid: 569f1ad715d60be4bb0fe6b597df6cf6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f332e53f31465a843abb186833ee47b5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 569f1ad715d60be4bb0fe6b597df6cf6, type: 3}
 --- !u!1001 &395983971
