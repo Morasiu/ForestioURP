@@ -11,11 +11,15 @@ public class Click : MonoBehaviour
     GameObject PollutedMenu;
 
     public Material mat;
-    public GameObject childrenOfHexa;
+    public GameObject Oak;
+    public GameObject Pine;
+    public GameObject Bush;
+    public GameObject Redwood;
     [HideInInspector] public RaycastHit hitHexa;
     public GameObject World;
     public Camera cam;
     SurroundHexes surroundHexes;
+    private Material oldMaterial;
 
     private void Start()
     {
@@ -33,13 +37,20 @@ public class Click : MonoBehaviour
     }
     void Update()
     {
-        var rightClick = Input.GetKeyDown(KeyCode.Mouse1);
-        var leftClick = Input.GetKeyDown(KeyCode.Mouse0);
+        var rightClick = Input.GetKeyUp(KeyCode.Mouse1);
+        var leftClick = Input.GetKeyUp(KeyCode.Mouse0);
+
+        if ((rightClick || leftClick) && oldMaterial != null) {
+            hitHexa.collider.gameObject.GetComponent<MeshRenderer>().material = oldMaterial;
+        }
+
         if (rightClick)
         {
             DetectPosition();
             SetTargetMenu();
         }
+
+
     }
 
     IEnumerator DisapearTab()
@@ -53,19 +64,20 @@ public class Click : MonoBehaviour
         if (hitHexa.collider == null)
             return;
         var HexaStatus = hitHexa.collider.gameObject.GetComponent<Hex>().Status;
+
         Debug.Log($"Hit: {HexaStatus} ");
-        
+        hitHexa.collider.GetComponent<MeshRenderer>().material = mat;
+
         switch (HexaStatus)
         {
             case HexState.Natural:
-                    NaturalMenu.SetActive(true);
-                    break;
+                //NaturalMenu.SetActive(true);
+                break;
             case HexState.Polluted:
-                    PollutedMenu.SetActive(true);
+                //P.SetActive(true);
                 break;
             case HexState.Neutral:
                 NeutralMenu.SetActive(true);
-                hitHexa.collider.GetComponent<MeshRenderer>().material = mat;
                 break;
             case HexState.NonActive:
                 Debug.Log("trafiles w nieaktywne pole");
@@ -82,30 +94,33 @@ public class Click : MonoBehaviour
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray, out hitHexa, Mathf.Infinity, 1 << 9);
-        
+        oldMaterial = new Material(hitHexa.collider.GetComponent<MeshRenderer>().material);
     }
 
     #region Natural Menu Actions
 
-    public void OnOakChosen()
-    {
-        hitHexa.collider.GetComponent<Hex>().Status = HexState.Natural;
-        SetChildren(childrenOfHexa);
+    public void OnOakChosen() {
+        PlantTree(Oak);
     }
+
     public void OnBushChosen()
     {
-        hitHexa.collider.GetComponent<Hex>().Status = HexState.Natural;
+        PlantTree(Bush);
     }
     public void OnPineChosen()
     {
-        hitHexa.collider.GetComponent<Hex>().Status = HexState.Natural;
+        PlantTree(Pine);
     }
     public void OnRedwoodChosen()
     {
-        hitHexa.collider.GetComponent<Hex>().Status = HexState.Natural;
+        PlantTree(Redwood);
     }
 
-    #endregion 
+    #endregion
 
+    private void PlantTree(GameObject tree) {
+        hitHexa.collider.GetComponent<Hex>().Status = HexState.Natural;
+        SetChildren(tree);
+    }
 
 }
