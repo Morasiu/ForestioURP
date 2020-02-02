@@ -633,12 +633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3680c928c64055d4f809311fbd326c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorSizeX: 32
-  cursorSizeY: 32
-  ARROW: {fileID: 0}
-  ARROWALL: {fileID: 0}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!4 &484306473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6444166956924679357, guid: 71052e70a36c53e41b347712ec002e6e,
@@ -2002,21 +1996,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -21.604
-      objectReference: {fileID: 0}
-    - target: {fileID: 2797417016693091012, guid: ec37d4393e819124888eaa45335f80f6,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.9530058
-      objectReference: {fileID: 0}
-    - target: {fileID: 2797417016693091012, guid: ec37d4393e819124888eaa45335f80f6,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.95300573
-      objectReference: {fileID: 0}
-    - target: {fileID: 2797417016693091012, guid: ec37d4393e819124888eaa45335f80f6,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.95300573
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec37d4393e819124888eaa45335f80f6, type: 3}
