@@ -11,6 +11,7 @@ public class Click : MonoBehaviour
     GameObject PollutedMenu;
 
     public Material mat;
+    public GameObject Particle;
     public GameObject Oak;
     public GameObject Pine;
     public GameObject Bush;
@@ -123,6 +124,10 @@ public class Click : MonoBehaviour
         Debug.Log("SPAWN: " + tree.name + " at " + hitHexa.collider.name);
         hitHexa.collider.GetComponent<Hex>().Status = HexState.Natural;
         SetChildren(tree);
+
+        NeutralMenu.SetActive(false);
+
+        GameObject.Instantiate(Particle, hitHexa.point, Quaternion.identity);
     }
 
 }
