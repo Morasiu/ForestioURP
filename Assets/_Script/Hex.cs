@@ -38,7 +38,7 @@ public class Hex : MonoBehaviour
                 value = HexState.Neutral;
                 GetComponent<MeshRenderer>().material = materials[3];
             }
-
+            print($"no elooo{status}");
             status = value;
         }
     }

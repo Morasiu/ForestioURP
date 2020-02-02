@@ -12,16 +12,25 @@ public class Click : MonoBehaviour
 
     public Material mat;
     public GameObject childrenOfHexa;
-    RaycastHit hitHexa;
+    [HideInInspector] public RaycastHit hitHexa;
     public GameObject World;
     public Camera cam;
+    SurroundHexes surroundHexes;
 
+    private void Start()
+    {
+        surroundHexes = FindObjectOfType<SurroundHexes>();
+    }
 
     public void SetChildren(GameObject tree)
     {
         
         var children = Instantiate(tree, hitHexa.collider.transform, false);
         children.transform.localScale /= 4;
+
+        //To można dodać tylko tam gdzie spawnuje się obiekt wyższy poziomem
+        surroundHexes.ActiveateObjectsAroundTheTarget(children, HexState.Natural);
+
         
     }
     void Update()
@@ -75,6 +84,7 @@ public class Click : MonoBehaviour
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray, out hitHexa, Mathf.Infinity, 1 << 9);
+        
     }
 
     #region Natural Menu Actions

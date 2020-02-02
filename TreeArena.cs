@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorldMaterials : MonoBehaviour
+public class TreeArena 
 {
-    public List<Material> materials;
+    
 }
